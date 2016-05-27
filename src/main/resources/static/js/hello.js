@@ -7,6 +7,9 @@ angular.module('hello', [ 'ngRoute' ])
 	}).when('/login', {
 		templateUrl : 'login.html',
 		controller : 'navigation'
+	}).when('/users', {
+		templateUrl : '/views/users.html',
+		controller : ''
 	}).otherwise('/');
 
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

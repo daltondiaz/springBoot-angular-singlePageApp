@@ -48,7 +48,7 @@ public class SinglePageApplication {
 	      .and()
 	        .csrf().csrfTokenRepository(csrfTokenRepository()).and()
 	        .authorizeRequests()
-	          .antMatchers("/index.html", "/home.html", "/login.html", "/").permitAll()
+	          .antMatchers("/index.html", "/home.html", "/login.html", "/", "/views/**", "/font/**", "/fonts/**").permitAll()
 	          .anyRequest().authenticated()
 	          .and().logout();
 	    }
