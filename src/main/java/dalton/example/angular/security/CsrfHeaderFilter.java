@@ -1,4 +1,4 @@
-package dalton.example.angular;
+package dalton.example.angular.security;
 
 import java.io.IOException;
 
