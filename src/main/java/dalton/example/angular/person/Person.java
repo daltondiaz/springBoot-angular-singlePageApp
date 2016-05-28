@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import dalton.example.angular.security.Role;
 
-@Table
-@Entity(name="person")
+@Entity
+@Table(name="person")
 public class Person implements UserDetails {
 	
 	private static final long serialVersionUID = -6488662947024152289L;
@@ -31,7 +31,7 @@ public class Person implements UserDetails {
 	@Column(name = "person_name", length = 255)
 	private String name;
 	
-	@Column(name = "password", length = 100)
+	@Column(name = "password", length = 255)
 	private String password;
 	
 	@Column(name = "email", length = 255, unique = true)

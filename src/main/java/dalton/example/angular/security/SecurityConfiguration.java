@@ -27,10 +27,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .csrf().csrfTokenRepository(csrfTokenRepository()).and()
         .authorizeRequests()
           .antMatchers("/index.html", "/home.html", "/login.html",
-        		  "/", "/views/**", "/font/**", "/fonts/**").permitAll()
+        		  "/", "/views/**", "/font/**", "/fonts/**","/user/new/**").permitAll()
           .anyRequest().authenticated()
 	          .and().formLogin()
-	          .loginPage("#/login")
+	          .loginPage("/login")
 	          .usernameParameter("email")
 	          .permitAll()
           .and().logout();

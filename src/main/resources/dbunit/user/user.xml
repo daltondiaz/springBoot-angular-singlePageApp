@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<person id="1" person_name="User1" email="user1@email.com" password="$2a$10$VxJ2Se.UBePMPRFSEnoTZ.HAuJ6zU/PZQb9D/8U64kRc3Z2GnH0zG" role="USER" status="1"/>
+</dataset>
