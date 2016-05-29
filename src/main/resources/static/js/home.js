@@ -74,12 +74,10 @@ home.controller('SignUpController', function($scope, $http){
 	$scope.title = "New User";
 	$scope.submitForm = submitForm;
 	function submitForm(person){
-		console.log('person',$scope.person);
 		var sendPerson = {
-				method: 'GET',
+				method: 'POST',
 				url: '/user/new/',
-				data: $scope.person,
-				
+				data: person
 		}
 		$http(sendPerson).success(function(data) {
 		  $scope.success = "Welcome to our project";

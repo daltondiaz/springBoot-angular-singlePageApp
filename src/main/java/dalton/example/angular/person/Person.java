@@ -42,7 +42,7 @@ public class Person implements UserDetails {
 	@JsonIgnore
 	private Role role;
 	
-	@Column(name = "status", columnDefinition="DEFAULT 1")
+	@Column(name = "status")
 	private boolean status ;
 
 	
@@ -89,6 +89,7 @@ public class Person implements UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -98,8 +99,7 @@ public class Person implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.password;
 	}
 
 	@Override

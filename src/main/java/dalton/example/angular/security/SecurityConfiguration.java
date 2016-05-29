@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
@@ -24,7 +25,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       http
         .httpBasic()
       .and()
-        .csrf().csrfTokenRepository(csrfTokenRepository()).and()
         .authorizeRequests()
           .antMatchers("/index.html", "/home.html", "/login.html",
         		  "/", "/views/**", "/font/**", "/fonts/**","/user/new/**").permitAll()
@@ -33,7 +33,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	          .loginPage("/login")
 	          .usernameParameter("email")
 	          .permitAll()
-          .and().logout();
+          .and().logout()
+          .and().csrf().csrfTokenRepository(csrfTokenRepository())
+          .and().addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
     }
 	
 	private static CsrfTokenRepository csrfTokenRepository() {

@@ -12,8 +12,8 @@ public class PersonController {
 	@Autowired
 	private PersonService personService;
 	
-	@RequestMapping(value ="/user/new", method = RequestMethod.GET)
-	public Person createPerson(	Person user){
+	@RequestMapping(value ="/user/new", method = RequestMethod.POST)
+	public Person createPerson(@RequestBody Person user){
 		
 		try {
 			return personService.create(user);

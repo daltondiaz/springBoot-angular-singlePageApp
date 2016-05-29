@@ -14,8 +14,9 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Person create(Person person) throws Exception {
+		BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
 		person.setRole(Role.USER);
-		person.setPassword(new BCryptPasswordEncoder().encode(person.getPassword()));
+		person.setPassword(bCrypt.encode(person.getPassword()));
 		return personRepository.save(person);
 	}
 
