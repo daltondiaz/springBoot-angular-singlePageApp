@@ -31,7 +31,7 @@ home.controller('navigation',  function($rootScope, $scope, $http, $location) {
         + btoa(credentials.username + ":" + credentials.password)
     } : {};
 
-    $http.get('user', {headers : headers}).success(function(data) {
+    $http.get('login', {headers : headers}).success(function(data) {
       if (data.name) {
         $rootScope.authenticated = true;
       } else {

@@ -14,6 +14,10 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
 		this.person = person;
 	}
 	
+	public Person getPerson(){
+		return this.person;
+	}
+	
 	public String getEmail(){
 		return this.person.getEmail();
 	}
